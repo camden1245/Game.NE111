@@ -1,3 +1,3 @@
 # README.md
 
-Readme for the game.
+This is the NE111 game repository.
