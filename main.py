@@ -45,6 +45,9 @@ def draw():
 
 def move():
     # this move function moves the letters randomly around the screen
+    # First it chooses a number (at random) that will fall
+    # The function then assigns the x coordinate and adds it to 'target' list, and the randomly chosen letter to the 'letter' list.   
+
     """Move letters."""
     if randrange(20) == 0:
         x = randrange(-150, 150)
@@ -52,19 +55,20 @@ def move():
         targets.append(target)
         letter = choice(ascii_lowercase)
         letters.append(letter)
+# the function here moves the target letter down 1 y-position, then updates the screen
 
     for target in targets:
         target.y -= 1
 
     draw()
-
+# now it checks to see if any target letter leaves the screen. if so it ends the game
     for target in targets:
         if not inside(target):
             return
-
+# now it sets a timer for a delay until the game loop starts again. 
     ontimer(move, 100)
 
-
+# this is the fucntion that handles user input keys
 def press(key):
     """Press key."""
     global score
