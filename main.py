@@ -28,6 +28,7 @@ def inside(point):
 
 
 def draw():
+
     # using the turtle module the function will draw the falling letters on the screen
     # steps:
     # 1. clears the screen
@@ -69,6 +70,8 @@ def move():
     ontimer(move, 100)
 
 # this is the fucntion that handles user input keys
+# if the key pressed by the user is in the 'letters' list from before then the players score goes up 1
+# otherwise if the user presses the wrong key then the score goes down one. 
 def press(key):
     """Press key."""
     global score
@@ -83,13 +86,22 @@ def press(key):
 
     print('Score:', score)
 
-
+# finally, this will initialize the turtle screen, hides the 'turtle' and sets up some configurations 
 setup(420, 420, 370, 0)
 hideturtle()
 up()
 tracer(False)
 listen()
+
+# on key is a function from turtle that is called when a specific key is pressed
+# the lambda takes 'letter' and then sets it to the value 'letter' from the for loop 
+# the press function assigns letter as the argument, associating each letter to the press() function
+
 for letter in ascii_lowercase:
     onkey(lambda letter=letter: press(letter), letter)
+
+# the game gets initiated from the move() method
+# then the done() method keeps the game (window) open until the user closes it. 
+
 move()
 done()
