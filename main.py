@@ -22,7 +22,7 @@ score = 0 # this will keep track of the score of the player (score += 1 each tim
 
 
 def inside(point):
-   # this functions seems to check to see if a given point is on the screen (-200, 200). if it is the function will return true
+   # this functions seems to check to see if a given point is on the screen (-200, 200). if it isn't the function will return true
     """Return True if point on screen."""
     return -200 < point.x < 200 and -200 < point.y < 200
 

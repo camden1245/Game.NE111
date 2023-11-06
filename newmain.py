@@ -1,7 +1,7 @@
 ### This is the file where we are going to edit the code from the Typing Game. ###
-
+# Nicholas Lee (NL) #21082020, imported all letters, digits, and punctuation 
 from random import choice, randrange
-from string import ascii_lowercase
+from string import ascii_letters, digits, punctuation
 from turtle import *
 
 from freegames import vector
@@ -26,6 +26,7 @@ def draw():
 
     update()
 
+    
 
 def move():
     """Move letters."""
@@ -33,7 +34,7 @@ def move():
         x = randrange(-150, 150)
         target = vector(x, 200)
         targets.append(target)
-        letter = choice(ascii_lowercase)
+        letter = choice(ascii_letters)
         letters.append(letter)
 
     for target in targets:
@@ -68,7 +69,8 @@ hideturtle()
 up()
 tracer(False)
 listen()
-for letter in ascii_lowercase:
+#NL added all letters 
+for letter in ascii_letters:
     onkey(lambda letter=letter: press(letter), letter)
 move()
 done()
