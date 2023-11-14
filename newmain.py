@@ -16,11 +16,16 @@ def inside(point):
     """Return True if point on screen."""
     return -200 < point.x < 200 and -200 < point.y < 200
 
+def draw_score():
+    global score
+    goto(0, 0)
+    scorekeeper = "Score: " + str(score)
+    write(scorekeeper, align='center', font=('Helvetica', 20, 'normal'))
 
 def draw():
     """Draw letters."""
     clear()
-
+    draw_score()
     for target, letter in zip(targets, letters):
         goto(target.x, target.y)
         write(letter, align='center', font=('Helvetica', 20, 'normal'))
@@ -64,6 +69,7 @@ def press(key):
         score -= 1
 
     print('Score:', score)
+
 
 
 setup(420, 420, 370, 0)
