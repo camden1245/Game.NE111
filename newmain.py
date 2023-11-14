@@ -16,6 +16,7 @@ def inside(point):
     """Return True if point on screen."""
     return -200 < point.x < 200 and -200 < point.y < 200
 
+#NL made a function to draw the score onto the screen 
 def draw_score():
     global score
     goto(0, 0)
@@ -25,6 +26,7 @@ def draw_score():
 def draw():
     """Draw letters."""
     clear()
+    #NL draws the score onto the screen with the letters
     draw_score()
     for target, letter in zip(targets, letters):
         goto(target.x, target.y)
