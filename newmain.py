@@ -1,8 +1,8 @@
 ### This is the file where we are going to edit the code from the Typing Game. ###
 
 from random import choice, randrange
-# Nicholas Lee (NL) #21082020, imported all letters, digits, and punctuation 
-from string import ascii_letters, digits, punctuation
+# Nicholas Lee (NL) #21082020, imported uppercase letters
+from string import ascii_letters
 from turtle import *
 
 from freegames import vector
@@ -10,7 +10,7 @@ from freegames import vector
 targets = []
 letters = []
 score = 0
-
+speed = 100
 
 def inside(point):
     """Return True if point on screen."""
@@ -19,9 +19,10 @@ def inside(point):
 #NL made a function to draw the score onto the screen 
 def draw_score():
     global score
-    goto(0, 0)
+    goto(-150, 175)
     scorekeeper = "Score: " + str(score)
     write(scorekeeper, align='center', font=('Helvetica', 20, 'normal'))
+    
 
 def draw():
     """Draw letters."""
@@ -38,6 +39,7 @@ def draw():
 
 def move():
     """Move letters."""
+    global speed
     if randrange(20) == 0:
         x = randrange(-150, 150)
         target = vector(x, 200)
@@ -54,22 +56,27 @@ def move():
     for target in targets:
         if not inside(target):
             return
+    
 
-    ontimer(move, 100)
+    ontimer(move, speed)
 
 
 def press(key):
     """Press key."""
     global score
-
+    global speed
     if key in letters:
         score += 1
         pos = letters.index(key)
         del targets[pos]
         del letters[pos]
+    #NL added speed increase for every letter you get right
+        while speed>15:
+            speed -=5
+
     else:
         score -= 1
-
+        speed +=5
     print('Score:', score)
 
 
@@ -79,7 +86,7 @@ hideturtle()
 up()
 tracer(False)
 listen()
-#NL added all letters 
+#NL added uppercase letters 
 for letter in ascii_letters:
     onkey(lambda letter=letter: press(letter), letter)
 move()
