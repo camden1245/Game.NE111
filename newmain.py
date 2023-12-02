@@ -4,7 +4,6 @@ from random import choice, randrange
 # Nicholas Lee (NL) #21082020, imported uppercase letters
 from string import ascii_letters
 from turtle import *
-
 from freegames import vector
 
 targets = []
@@ -69,18 +68,13 @@ def move():
         target = vector(x, 200)
         targets.append(target)
         letter = choice(ascii_letters)
-
         letters.append(letter)
 
     for target in targets:
         target.y -= 1
 
     draw()
-    '''
-    for target in targets:
-        if not inside(target):
-            return
-    '''
+
     # CS made game end once three lives are up
     for target in targets:
         if not inside(target):
