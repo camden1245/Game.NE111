@@ -1,7 +1,11 @@
 ### This is the file where we are going to edit the code from the Typing Game. ###
+#Nicholas Lee NL, 21082020
+#Cole Stefanov CS, 21082483
+#Camden da Silva CDS, 21058783
+#Zach Hodd ZH, 
 
 from random import choice, randrange
-# Nicholas Lee (NL) #21082020, imported uppercase letters
+# CDS imported uppercase letters
 from string import ascii_letters
 from turtle import *
 from freegames import vector
@@ -101,7 +105,7 @@ def press(key):
         pos = letters.index(key)
         del targets[pos]
         del letters[pos]
-    #NL added speed increase for every letter you get right
+    #ZH added speed increase for every letter you get right
         while speed>15:
             speed -=5
 
@@ -117,7 +121,7 @@ hideturtle()
 up()
 tracer(False)
 listen()
-#NL added uppercase letters 
+#CDS added uppercase letters 
 for letter in ascii_letters:
     onkey(lambda letter=letter: press(letter), letter)
 move()
