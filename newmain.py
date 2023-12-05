@@ -27,6 +27,7 @@ def draw_score():
     scorekeeper = "Score: " + str(score)
     write(scorekeeper, align='center', font=('Helvetica', 20, 'normal'))
 
+#CS made a function to draw the lives onto the screen
 def draw_lives():
     global lives
     goto(150, 175)
